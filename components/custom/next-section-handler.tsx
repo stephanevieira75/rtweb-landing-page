@@ -116,6 +116,11 @@ export function NextSectionHandler({
   const isLastSection = useMemo(() => {
     const isAtLastArraySection = currentSectionIndex >= SECTION_IDS.length - 1;
 
+    // Check if we're in the browser environment
+    if (typeof window === "undefined") {
+      return isAtLastArraySection;
+    }
+
     const footer = document.getElementById("footer");
     if (footer) {
       const footerRect = footer.getBoundingClientRect();
