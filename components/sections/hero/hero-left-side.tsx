@@ -18,7 +18,7 @@ export function HeroLeftSide() {
         <WritingText
           text="On vous accompagne."
           spacing={10}
-          transition={{ type: "spring", bounce: 0, duration: 10, delay: 1.2 }}
+          transition={{ type: "spring", bounce: 0, duration: 10, delay: 0.6 }}
         />
       </div>
       <h1 className="hidden">On conçoit. On développe. On vous accompagne.</h1>
