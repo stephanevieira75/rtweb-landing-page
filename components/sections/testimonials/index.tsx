@@ -1,29 +1,30 @@
 import { CTAButton } from "@/components/custom/cta-button";
+import Link from "next/link";
 
 const testimonials = [
   {
-    name: "Marie Dubois",
-    company: "E-commerce Solutions",
-    role: "Directrice Marketing",
+    name: "Karim Bedjaoui",
+    company: "Fidarna",
+    href: "https://fidarna.com",
+    role: "Investisseur Immobilier",
     content:
-      "L'équipe a transformé notre vision en une application mobile exceptionnelle. Le professionnalisme et la qualité du travail sont remarquables.",
-    rating: 5,
+      "En quelques clics, j'ai pu trouver des biens immobiliers correspondant parfaitement à mes critères. Leur carte interactive est vraiment intuitive et m'a fait gagner un temps précieux.",
   },
   {
-    name: "Jean-Pierre Martin",
-    company: "TechStart",
-    role: "CEO",
+    name: "Camille Brouillon",
+    company: "Association COMBINES",
+    href: "https://biomedicale.u-paris.fr/combines-en",
+    role: "Présidente",
     content:
-      "Grâce à leur expertise, notre site web a vu ses conversions augmenter de 150%. Un partenaire de confiance pour tous nos projets digitaux.",
-    rating: 5,
+      "Grâce au développement de notre site par RTWeb, l’association a pu mieux faire connaître ses travaux sur les organoïdes et renforcer sa présence au sein de la communauté scientifique.",
   },
   {
-    name: "Sophie Laurent",
-    company: "Boutique Mode",
-    role: "Propriétaire",
+    name: "Benoist Bouteiller",
+    company: "Club ARRD-Maromme",
+    href: "https://arrd.fr",
+    role: "Membre",
     content:
-      "Notre boutique en ligne développée par cette équipe dépasse toutes nos attentes. Interface intuitive et performances excellentes.",
-    rating: 5,
+      "Depuis l’ajout de Glyph.chat sur notre site, les échanges avec notre communauté sont plus simples et directs. Un vrai plus pour notre équipe et nos visiteurs !",
   },
 ];
 
@@ -49,21 +50,8 @@ export function TestimonialsSection() {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow duration-300"
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col justify-around"
           >
-            {/* Rating stars */}
-            <div className="flex mb-4">
-              {[...Array(testimonial.rating)].map((_, i) => (
-                <svg
-                  key={i}
-                  className="w-5 h-5 text-yellow-400 fill-current"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-
             <blockquote className="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-6 italic">
               &quot;{testimonial.content}&quot;
             </blockquote>
@@ -71,7 +59,18 @@ export function TestimonialsSection() {
             <div>
               <p className="font-semibold text-lg">{testimonial.name}</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                {testimonial.role} - {testimonial.company}
+                {testimonial.role}
+                {testimonial.role && testimonial.company ? " - " : ""}
+                {testimonial.company ? (
+                  <Link
+                    href={testimonial.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    {testimonial.company}
+                  </Link>
+                ) : null}
               </p>
             </div>
           </div>

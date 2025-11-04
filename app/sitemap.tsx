@@ -20,5 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: formatDateForXML(new Date()),
       changeFrequency: "monthly",
     },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/mentions-legales`,
+      priority: 0.5,
+      lastModified: formatDateForXML(new Date()),
+      changeFrequency: "yearly",
+    },
   ];
 }

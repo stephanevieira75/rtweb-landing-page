@@ -12,13 +12,14 @@ export function CTAButton({
     asChild?: boolean;
   }) {
   const handleClick = () => {
-    // TODO: Open glyph
-    // window.glyphChatApi.open();
+    (
+      window as typeof window & { glyphChatApi: { open: () => void } }
+    ).glyphChatApi.open();
   };
   return (
     <Button
       size="lg"
-      className={cn("bg-blue-600 font-bold", className)}
+      className={cn("bg-blue-600 font-bold cursor-pointer", className)}
       onClick={handleClick}
       {...rest}
     >

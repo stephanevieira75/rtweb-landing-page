@@ -3,6 +3,7 @@
 import { ArrowDownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState, useCallback, useMemo } from "react";
+import { usePathname } from "next/navigation";
 
 // Constants
 const SECTION_IDS = [
@@ -109,12 +110,21 @@ export function NextSectionHandler({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
   const currentSectionIndex = useCurrentSection();
 
-  const isLastSection = useMemo(
-    () => currentSectionIndex >= SECTION_IDS.length - 1,
-    [currentSectionIndex]
-  );
+  const isLastSection = useMemo(() => {
+    const isAtLastArraySection = currentSectionIndex >= SECTION_IDS.length - 1;
+
+    const footer = document.getElementById("footer");
+    if (footer) {
+      const footerRect = footer.getBoundingClientRect();
+      const isFooterVisible = footerRect.top < window.innerHeight;
+      return isAtLastArraySection || isFooterVisible;
+    }
+
+    return isAtLastArraySection;
+  }, [currentSectionIndex]);
 
   const nextSectionId = useMemo(
     (): SectionId | null =>
@@ -131,7 +141,7 @@ export function NextSectionHandler({
     });
   }, [nextSectionId]);
 
-  if (isLastSection) {
+  if (isLastSection || pathname !== "/") {
     return <>{children}</>;
   }
 
@@ -144,9 +154,9 @@ export function NextSectionHandler({
           size="icon-lg"
           onClick={scrollToNextSection}
           title={`Section suivante: ${nextSectionId}`}
-          className="transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm bg-background/80"
+          className="transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-xs bg-background/10 cursor-pointer"
         >
-          <ArrowDownIcon size={24} />
+          <ArrowDownIcon />
         </Button>
       </div>
     </>

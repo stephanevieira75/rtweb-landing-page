@@ -24,14 +24,14 @@ export function TeamSection() {
           role="CEO"
           imageSrc="/images/founders/svieira.png"
           linkedinUrl="https://www.linkedin.com/in/svieira-rtweb/"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nobis sed in incidunt consequuntur maxime aliquam fugit culpa doloremque corrupti ipsa vero assumenda excepturi, vitae distinctio quisquam neque amet cupiditate."
+          description="Avec une passion pour la technologie et le design, Stéphane dirige RTWeb en alliant stratégie, marketing et développement pour transformer les idées en produits performants."
         />
         <FounderContainer
           name="Abdelmalek"
           role="CTO"
           imageSrc="/images/founders/akhelouat.png"
           linkedinUrl="https://www.linkedin.com/in/abdel-khelouat/"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nobis sed in incidunt consequuntur maxime aliquam fugit culpa doloremque corrupti ipsa vero assumenda excepturi, vitae distinctio quisquam neque amet cupiditate."
+          description="Expert technique, Abdelmalek conçoit l’architecture et développe vos projets avec rigueur et innovation. Il veille à l’excellence technique et à la scalabilité des solutions RTWeb."
         />
       </div>
     </section>

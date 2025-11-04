@@ -55,6 +55,10 @@ const menuItems = [
       },
     ],
   },
+  {
+    name: "Témoignages",
+    href: "/#testimonials",
+  },
 ];
 
 type SubmenuItem = {

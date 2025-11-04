@@ -59,7 +59,7 @@ export function ServicesSection() {
         ))}
       </div>
 
-      <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24">
+      <div className="mt-12 sm:mt-16 md:mt-4 lg:mt-8">
         <CTAButton size="2xl" className="font-bold text-lg" />
       </div>
     </section>
