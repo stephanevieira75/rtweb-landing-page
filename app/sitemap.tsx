@@ -26,5 +26,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: formatDateForXML(new Date()),
       changeFrequency: "yearly",
     },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/conditions-generales-de-ventes`,
+      priority: 0.2,
+      lastModified: formatDateForXML(new Date()),
+      changeFrequency: "yearly",
+    },
   ];
 }
